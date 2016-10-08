@@ -43,10 +43,22 @@ class App extends Component {
 
   }
 
+  componentWillMount() {
+    function sleep(ms = 0) {
+      return new Promise(r => setTimeout(r, ms));
+    }
+    async function asyncTest() {
+      console.log('a');
+      await sleep(3000);
+      console.log('b');
+    }
+    asyncTest();
+  }
+
   render() {
     console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
     console.log('process.env.BABEL_ENV: ', process.env.BABEL_ENV)
-    console.log('add: ', add(2, '3'))
+    console.log('add: ', add(2, 3))
     return (
       <div>
         <header className="navbar navbar-static-top navbar-inverse" id="top" role="banner">

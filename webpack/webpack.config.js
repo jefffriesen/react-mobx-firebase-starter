@@ -9,6 +9,7 @@ module.exports = (options) => {
   const webpackConfig = {
     devtool: options.devtool,
     entry: [
+      'babel-polyfill',
       `webpack-dev-server/client?http://localhost:${+options.port}`,
       'webpack/hot/dev-server',
       Path.join(__dirname, '../src/app/index'),
