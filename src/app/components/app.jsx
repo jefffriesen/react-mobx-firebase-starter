@@ -1,23 +1,29 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { fetchUser, logoutUser }  from '../actions/firebase_actions';
+import React, {Component, PropTypes} from 'react'
+import { Link } from 'react-router'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { fetchUser, logoutUser }  from '../actions/firebase_actions'
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
+  static propTypes = {
+    fetchUser: PropTypes.func,
+    logoutUser: PropTypes.func,
+    currentUser: PropTypes.string,
+    children: PropTypes.object
+  }
 
-    this.props.fetchUser();
-    this.logOut = this.logOut.bind(this);
+  constructor(props) {
+    super(props)
+    this.props.fetchUser()
+    this.logOut = this.logOut.bind(this)
   }
 
   logOut() {
     this.props.logoutUser().then(data=> {
       // reload props from reducer
-      this.props.fetchUser();
-    });
+      this.props.fetchUser()
+    })
   }
 
   renderUserMenu(currentUser) {
@@ -26,11 +32,12 @@ class App extends Component {
       return (
         <li className="dropdown">
           <a href="#" className="dropdown-toggle" data-toggle="dropdown" role="button"
-             aria-haspopup="true" aria-expanded="false">
-            {currentUser.email} <span className="caret"></span></a>
+            aria-haspopup="true" aria-expanded="false">
+            {currentUser.email} <span className="caret" />
+          </a>
           <ul className="dropdown-menu">
             <li><Link to="/profile">Profile</Link></li>
-            <li role="separator" className="divider"></li>
+            <li role="separator" className="divider" />
             <li><Link to="/logout" onClick={this.logOut}>Logout</Link></li>
           </ul>
         </li>
@@ -45,19 +52,18 @@ class App extends Component {
 
   componentWillMount() {
     function sleep(ms = 0) {
-      return new Promise(r => setTimeout(r, ms));
+      return new Promise(r => setTimeout(r, ms))
     }
     async function asyncTest() {
-      console.log('a');
-      await sleep(3000);
-      console.log('b');
+      console.log('a')
+      await sleep(3000)
+      console.log('b')
     }
-    asyncTest();
+    asyncTest()
   }
 
   render() {
     console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
-    console.log('process.env.BABEL_ENV: ', process.env.BABEL_ENV)
     console.log('add: ', add(2, 3))
     return (
       <div>
@@ -66,9 +72,9 @@ class App extends Component {
             <div className="navbar-header">
               <button className="navbar-toggle collapsed" type="button" data-toggle="collapse"
                 data-target=".bs-navbar-collapse"><span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
-                <span className="icon-bar"></span>
+                <span className="icon-bar"/>
+                <span className="icon-bar"/>
+                <span className="icon-bar"/>
               </button>
               <Link to="/" className="navbar-brand">Firebase & Redux boilerplate</Link>
 
@@ -79,7 +85,7 @@ class App extends Component {
                 ,
               </ul>
               <ul className="nav navbar-nav navbar-right">
-                { this.renderUserMenu(this.props.currentUser) }
+                {this.renderUserMenu(this.props.currentUser)}
               </ul>
             </nav>
           </div>
@@ -89,21 +95,21 @@ class App extends Component {
           {this.props.children}
         </div>
       </div>
-    );
+    )
   }
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({fetchUser, logoutUser}, dispatch);
+  return bindActionCreators({fetchUser, logoutUser}, dispatch)
 }
 
 
 function mapStateToProps(state) {
-  return {currentUser: state.currentUser};
+  return {currentUser: state.currentUser}
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App)
 
 function add(n1: number, n2: number): number {
   return n1 + n2
