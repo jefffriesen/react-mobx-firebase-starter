@@ -44,13 +44,16 @@ class App extends Component {
   }
 
   render() {
+    console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
+    console.log('process.env.BABEL_ENV: ', process.env.BABEL_ENV)
+    console.log('add: ', add(2, '3'))
     return (
       <div>
         <header className="navbar navbar-static-top navbar-inverse" id="top" role="banner">
           <div className="container">
             <div className="navbar-header">
               <button className="navbar-toggle collapsed" type="button" data-toggle="collapse"
-                      data-target=".bs-navbar-collapse"><span className="sr-only">Toggle navigation</span>
+                data-target=".bs-navbar-collapse"><span className="sr-only">Toggle navigation</span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
                 <span className="icon-bar"></span>
@@ -89,3 +92,7 @@ function mapStateToProps(state) {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
+
+function add(n1: number, n2: number): number {
+  return n1 + n2
+}
