@@ -9,7 +9,7 @@ class App extends Component {
   static propTypes = {
     fetchUser: PropTypes.func,
     logoutUser: PropTypes.func,
-    currentUser: PropTypes.string,
+    currentUser: PropTypes.object,
     children: PropTypes.object
   }
 
@@ -64,7 +64,8 @@ class App extends Component {
 
   render() {
     console.log('process.env.NODE_ENV: ', process.env.NODE_ENV)
-    console.log('add: ', add(2, 3))
+    // console.log('flow check: ', add(2, 3))
+    // console.log('flow check: ', add(2, '3'))
     return (
       <div>
         <header className="navbar navbar-static-top navbar-inverse" id="top" role="banner">
@@ -72,17 +73,16 @@ class App extends Component {
             <div className="navbar-header">
               <button className="navbar-toggle collapsed" type="button" data-toggle="collapse"
                 data-target=".bs-navbar-collapse"><span className="sr-only">Toggle navigation</span>
-                <span className="icon-bar"/>
-                <span className="icon-bar"/>
-                <span className="icon-bar"/>
+                <span className="icon-bar" />
+                <span className="icon-bar" />
+                <span className="icon-bar" />
               </button>
-              <Link to="/" className="navbar-brand">Firebase & Redux boilerplate</Link>
+              <Link to="/" className="navbar-brand">Firebase & Mobx boilerplate</Link>
 
             </div>
             <nav className="collapse navbar-collapse bs-navbar-collapse" role="navigation">
               <ul className="nav navbar-nav">
                 <li><Link to="/"> Home</Link></li>
-                ,
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 {this.renderUserMenu(this.props.currentUser)}
