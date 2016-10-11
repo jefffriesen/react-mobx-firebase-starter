@@ -13,7 +13,7 @@
     "lint": "./node_modules/.bin/eslint src",
     "jest": "jest --watch"
   },
-  "author": "Beka Tomashvili, Jeff Friesen",
+  "author": "Jeff Friesen",
   "license": "MIT",
   "keywords": [
     "ReactJS",

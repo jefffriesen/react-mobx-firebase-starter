@@ -1,4 +1,17 @@
-# React, Redux Firebase Boilerplate
+# Radiant Labs Homeowner Presentation Tool:
+
+## Feature-First Organizations.
+Features:
+* auth
+* calculator (no UI)
+* presentation: 30 year chart
+* presentation: first-month chart
+* data entry: sensitivity charts
+* data entry: external data inputs
+
+
+
+#### Old boilerplate stuff I may need to look into:
 
 [![Build Status](https://travis-ci.org/awwong1/react-redux-firebase-boilerplate.svg?branch=master)](https://travis-ci.org/awwong1/react-redux-firebase-boilerplate)
 
@@ -61,7 +74,7 @@ Commands
 
 What it looks like
 
-### DEMO 
+### DEMO
 [https://react-redux-firebase-d6283.firebaseapp.com/](https://react-redux-firebase-d6283.firebaseapp.com/)
 
 --------
