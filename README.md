@@ -1,14 +1,7 @@
-# Radiant Labs Homeowner Presentation Tool:
-
 ## Feature-First Organizations.
 Features:
 * auth
 * calculator (no UI)
-* presentation: 30 year chart
-* presentation: first-month chart
-* data entry: sensitivity charts
-* data entry: external data inputs
-
 
 
 #### Old boilerplate stuff I may need to look into:
@@ -37,7 +30,7 @@ Quick Start
 -----------
 
 ```shell
-$ git clone https://github.com/btomashvili/react-redux-firebase-boilerplate.git
+$ git clone https://github.com/jefffriesen/react-redux-firebase-boilerplate.git
 $ cd react-redux-firebase-boilerplate
 $ npm install
 $ npm run dev
